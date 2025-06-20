@@ -1,55 +1,113 @@
+/* Global Styles */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #000;
   margin: 0;
   font-family: Arial, sans-serif;
+  padding: 10px;
 }
 
 .calculator {
   background-color: #000;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 4vw;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 320px;
 }
 
 #display {
   width: 100%;
-  height: 60px;
-  font-size: 2em;
+  height: 15vw;
+  font-size: 1.6rem;
   text-align: right;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 1vw;
+  margin-bottom: 2vw;
   background-color: #000;
   color: #fff;
   border: none;
   outline: none;
+  box-sizing: border-box;
 }
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(4, 60px);
-  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2vw;
 }
 
 button {
-  width: 60px;
-  height: 60px;
-  font-size: 1.2em;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Keeps buttons square */
+  font-size: 1.2rem;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   background-color: #333;
   color: #fff;
+  transition: background-color 0.2s;
 }
 
+button:hover {
+  background-color: #444;
+}
+
+/* Operator and Clear buttons */
 .operator {
   background-color: #f1a33c;
-  color: #fff;
+}
+.operator:hover {
+  background-color: #e5942a;
 }
 
 .clear {
   background-color: #a5a5a5;
+}
+.clear:hover {
+  background-color: #969696;
+}
+
+/* Breakpoints for Specific Tweaks */
+@media (max-width: 360px) {
+  #display {
+    height: 18vw;
+    font-size: 1.3rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .calculator {
+    max-width: 360px;
+  }
+
+  #display {
+    font-size: 1.6rem;
+  }
+
+  button {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .calculator {
+    max-width: 400px;
+  }
+
+  #display {
+    height: 70px;
+    font-size: 1.7rem;
+  }
+
+  button {
+    height: 70px;
+    font-size: 1.4rem;
+  }
 }
